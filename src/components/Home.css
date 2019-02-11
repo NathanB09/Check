@@ -1,0 +1,28 @@
+.home {
+  text-align: center;
+  display: block;
+  margin-top: 8vw;
+}
+
+.home_buttons {
+  margin: 5vw;
+}
+
+.home_buttons button {
+  margin: 0 5vw;
+  height: 50px;
+  width: 180px;
+  border-radius: 25px;
+  border-color: #fff;
+  border-width: 2px;
+  outline: none;
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.home_buttons button:hover {
+  background: rgba(255, 255, 255, 0.3)
+}

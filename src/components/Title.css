@@ -1,0 +1,20 @@
+.title_wrapper {
+  text-align: center;
+  display: block;
+  margin-top: 8vw;
+}
+
+img {
+  width: 20%;
+  height: auto;
+}
+
+.title {
+  color: #fff;
+  margin: 0 5vw 5vw 5vw;
+  font-size: 2em;
+}
+
+.title h1, .title p {
+  margin: 0;
+}

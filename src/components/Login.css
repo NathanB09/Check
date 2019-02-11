@@ -1,0 +1,37 @@
+.login_form {
+  text-align: center;
+  display: block;
+  float: right;
+  position: relative;
+}
+
+.login_form form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%)
+}
+
+.login_title {
+  float: left;
+  width: 50%;
+  height: auto;
+}
+
+.login_form input {
+  margin: 1vw;
+  width: 20vw;
+  height: 3vw;
+  background: none;
+  border-color: #fff;
+  border-style: solid;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  font-size: 1.2vw;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 1.2vw;
+}
