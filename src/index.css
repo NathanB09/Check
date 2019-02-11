@@ -1,4 +1,5 @@
 body {
   /* Background pattern from Toptal Subtle Patterns */
   background: url('/assets/background_tile.png') repeat;
+  height: 100%;
 }

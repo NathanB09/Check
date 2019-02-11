@@ -1,21 +1,15 @@
 .login_form {
-  text-align: center;
   display: block;
   float: right;
-  position: relative;
-}
-
-.login_form form {
-  position: absolute;
+  width: 50%;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%)
+  text-align: center;
+  margin-top: 15vw;
 }
 
 .login_title {
   float: left;
   width: 50%;
-  height: auto;
 }
 
 .login_form input {
@@ -34,4 +28,22 @@
 ::placeholder {
   color: #fff;
   font-size: 1.2vw;
+}
+
+.login_form button {
+  height: 40px;
+  width: 180px;
+  border-radius: 25px;
+  border-color: #fff;
+  border-width: 2px;
+  outline: none;
+  background: none;
+  color: #fff;
+  font-size: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.login_form button:hover {
+  background: rgba(255, 255, 255, 0.3)
 }

@@ -4,7 +4,7 @@ import './Login.css'
 
 const Login = () => {
   return (
-    <div>
+    <div className="login_wrapper">
       <div className='login_title'>
         <Title />
       </div>
