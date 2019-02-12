@@ -13,9 +13,9 @@ class Table extends Component {
     player_cards: [],
     player: false,
     odds: {
-      win: '--',
-      lose: '--',
-      tie: '--'
+      win: null,
+      lose: null,
+      tie: null
     }
   }
 
@@ -60,6 +60,32 @@ class Table extends Component {
     this.setState({ players: e.target.value })
   }
 
+  makeQuery = () => {
+    return {
+      user_id: 1,
+      com_card1: this.state.com_cards[0].code,
+      com_card2: this.state.com_cards[1].code,
+      com_card3: this.state.com_cards[2].code,
+      com_card4: this.state.com_cards[3] && this.state.com_cards[3].code,
+      com_card5: this.state.com_cards[4] && this.state.com_cards[4].code,
+      hand_card1: this.state.player_cards[0].code,
+      hand_card2: this.state.player_cards[1].code,
+      players: this.state.players
+    }
+  }
+
+  sendQuery = () => {
+    if (this.state.com_cards.length >= 3 && this.state.player_cards.length === 2) {
+      fetch('http://10.218.3.66:3000/queries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.makeQuery())
+      }).then(resp => resp.json()).then(data => this.setState({ odds: data }))
+    } else {
+      alert('Minimum of 3 table cards and 2 hand cards are required for a query')
+    }
+  }
+
   render() {
     return (
       <div>
@@ -80,7 +106,7 @@ class Table extends Component {
           </div>
         </div>
 
-        <Results odds={this.state.odds} handleChange={this.handleChange} />
+        <Results odds={this.state.odds} handleChange={this.handleChange} handleSubmit={this.sendQuery} />
 
       </div>
     );

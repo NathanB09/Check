@@ -6,14 +6,14 @@ const range = (start, end) => {
   return [start, ...range(start + 1, end)];
 }
 
-const Results = ({ odds, handleChange }) => {
+const Results = ({ odds, handleChange, handleSubmit }) => {
   return (
     <div className="results_container">
       <div className="odds_container">
         <h1>Odds</h1>
-        <p>Win: {odds.win}</p>
-        <p>Lose: {odds.lose}</p>
-        <p>Tie: {odds.tie}</p>
+        <p>Win: {odds.win || odds.win === 0 ? `${Math.round(odds.win * 100)} %` : '--'}</p>
+        <p>Lose: {odds.lose || odds.lose === 0 ? `${Math.round(odds.lose * 100)} %` : '--'}</p>
+        <p>Tie: {odds.tie || odds.tie === 0 ? `${Math.round(odds.tie * 100)} %` : '--'}</p>
       </div>
 
       <div className="submit_container">
@@ -21,7 +21,7 @@ const Results = ({ odds, handleChange }) => {
         <select onChange={handleChange} className="players_dropdown">
           {range(2, 10).map(n => <option key={n} value={n}>{n}</option>)}
         </select>
-        <button onClick={() => console.log}>Get Odds</button>
+        <button onClick={handleSubmit}>Get Odds</button>
       </div>
     </div>
   );
