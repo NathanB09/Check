@@ -1,0 +1,103 @@
+.selection_container {
+  position: relative;
+  display: block;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 3px;
+  border-radius: 10px;
+  height: auto;
+  margin: 20px;
+  text-align: center;
+  padding: 10px 5px 10px 5px;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.small_card {
+  display: inline-block;
+  width: 5vw;
+  height: auto;
+  margin: 0 5px 0 5px; 
+  cursor: pointer;
+}
+
+.large_card {
+  display: inline-block;
+  width: 10vw;
+  height: auto;
+  margin: 10px 10px;
+  cursor: pointer;
+}
+
+.cards_container {
+  display: flex;
+  margin: 20px;
+  min-height: 16.6vw;
+}
+
+.communal_container {
+  border-style: solid;
+  border-color: #fff;
+  border-width: 3px;
+  border-radius: 10px;
+  flex: 60%;
+  text-align: center;
+}
+
+.hand_container {
+  border-style: solid;
+  border-color: #fff;
+  border-width: 3px;
+  border-radius: 10px;
+  flex: 24%;
+  text-align: center;
+}
+
+.button_container {
+  flex: 10%;
+  text-align: center;
+}
+
+.button_container button {
+  width: 5vw;
+  height: 4vh;
+  font-size: 1vw;
+  background: none;
+  border-radius: 25px;
+  border-color: #fff;
+  border-width: 2px;
+  outline: none;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.button_container button:hover {
+  background: rgba(255, 255, 255, 0.3)
+}
+
+.button_container p {
+  color: #fff;
+  font-size: 1vw;
+}
+
+.results_container {
+  margin: 20px;
+  padding: 0 50px 0 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.odds_container, .submit_container {
+  position: relative;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 3px;
+  border-radius: 10px;
+  max-width: 15vw;
+  flex: 30%;
+  margin: 0 5vw 0 5vw;
+  text-align: center;
+  color: #fff;
+  font-size: 1vw;
+}

@@ -28,6 +28,7 @@
 ::placeholder {
   color: #fff;
   font-size: 1.2vw;
+  padding-left: 10px;
 }
 
 .login_form button {
