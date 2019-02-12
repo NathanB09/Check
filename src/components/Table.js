@@ -86,6 +86,21 @@ class Table extends Component {
     }
   }
 
+  newQuery = () => {
+    this.setState({
+      players: '2',
+      user_id: null,
+      com_cards: [],
+      player_cards: [],
+      player: false,
+      odds: {
+        win: null,
+        lose: null,
+        tie: null
+      }
+    })
+  }
+
   render() {
     return (
       <div>
@@ -106,7 +121,7 @@ class Table extends Component {
           </div>
         </div>
 
-        <Results odds={this.state.odds} handleChange={this.handleChange} handleSubmit={this.sendQuery} />
+        <Results odds={this.state.odds} handleChange={this.handleChange} handleSubmit={this.sendQuery} newQuery={this.newQuery} />
 
       </div>
     );

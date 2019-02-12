@@ -6,7 +6,7 @@ const range = (start, end) => {
   return [start, ...range(start + 1, end)];
 }
 
-const Results = ({ odds, handleChange, handleSubmit }) => {
+const Results = ({ odds, handleChange, handleSubmit, newQuery }) => {
   return (
     <div className="results_container">
       <div className="odds_container">
@@ -22,6 +22,7 @@ const Results = ({ odds, handleChange, handleSubmit }) => {
           {range(2, 10).map(n => <option key={n} value={n}>{n}</option>)}
         </select>
         <button onClick={handleSubmit}>Get Odds</button>
+        <button onClick={newQuery}>Clear Table</button>
       </div>
     </div>
   );
