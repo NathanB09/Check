@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { cards } from '../card-data'
 import './Table.css'
 import Card from './Card';
+import Results from './Results';
 
 class Table extends Component {
 
   state = {
-    players: 2,
+    players: '2',
     user_id: null,
     com_cards: [],
     player_cards: [],
@@ -55,6 +56,10 @@ class Table extends Component {
     this.setState({ player: !this.state.player })
   }
 
+  handleChange = (e) => {
+    this.setState({ players: e.target.value })
+  }
+
   render() {
     return (
       <div>
@@ -75,18 +80,8 @@ class Table extends Component {
           </div>
         </div>
 
-        <div className="results_container">
-          <div className="odds_container">
-            <h1>Odds</h1>
-            <p>Win: {this.state.odds.win}</p>
-            <p>Lose: {this.state.odds.lose}</p>
-            <p>Tie: {this.state.odds.tie}</p>
-          </div>
+        <Results odds={this.state.odds} handleChange={this.handleChange} />
 
-          <div className="submit_container">
-
-          </div>
-        </div>
       </div>
     );
   }
