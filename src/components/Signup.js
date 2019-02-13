@@ -9,7 +9,7 @@ const initialState = {
   password: ''
 }
 
-class Login extends React.Component {
+class Signup extends React.Component {
   state = initialState
 
   handleChange = event => {
@@ -18,18 +18,22 @@ class Login extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    API.login(this.state)
-      .then(data => {
-        if (data.error) {
-          this.setState(initialState)
-          alert(data.error)
-        } else {
-          this.props.login(this.state.username, data.token)
-          this.props.history.push('/table')
-          // API.getUserQueries()
-          //   .then(console.log)
-        }
-      })
+    if (!this.state.username || !this.state.password) {
+      alert('Username and Password fields must both be filled in.')
+    } else {
+      API.signup(this.state)
+        .then(data => {
+          if (data.error) {
+            this.setState(initialState)
+            alert(data.error)
+          } else {
+            this.props.login(this.state.username, data.token)
+            this.props.history.push('/table')
+            // API.getUserQueries()
+            //   .then(console.log)
+          }
+        })
+    }
   }
 
   render() {
@@ -44,7 +48,7 @@ class Login extends React.Component {
           <form onSubmit={handleSubmit}>
             <input onChange={handleChange} type="text" placeholder='Username' name="username" value={username} /><br />
             <input onChange={handleChange} type="password" placeholder='Password' name="password" value={password} /><br />
-            <button type='submit'>Login</button>
+            <button type='submit'>Signup</button>
           </form>
         </div>
       </div>
@@ -52,4 +56,4 @@ class Login extends React.Component {
   }
 };
 
-export default Login;
+export default Signup;

@@ -3,12 +3,13 @@ import { cards } from '../card-data'
 import './Table.css'
 import Card from './Card';
 import Results from './Results';
+import Nav from './Nav';
+import API from '../API';
 
 class Table extends Component {
 
   state = {
     players: '2',
-    user_id: null,
     com_cards: [],
     player_cards: [],
     player: false,
@@ -62,7 +63,6 @@ class Table extends Component {
 
   makeQuery = () => {
     return {
-      user_id: 1,
       com_card1: this.state.com_cards[0].code,
       com_card2: this.state.com_cards[1].code,
       com_card3: this.state.com_cards[2].code,
@@ -76,11 +76,7 @@ class Table extends Component {
 
   sendQuery = () => {
     if (this.state.com_cards.length >= 3 && this.state.player_cards.length === 2) {
-      fetch('http://10.218.3.66:3000/queries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.makeQuery())
-      }).then(resp => resp.json()).then(data => this.setState({ odds: data }))
+      API.sendQuery(this.makeQuery()).then(data => this.setState({ odds: data }))
     } else {
       alert('Minimum of 3 table cards and 2 hand cards are required for a query')
     }
@@ -89,7 +85,6 @@ class Table extends Component {
   newQuery = () => {
     this.setState({
       players: '2',
-      user_id: null,
       com_cards: [],
       player_cards: [],
       player: false,
@@ -101,23 +96,37 @@ class Table extends Component {
     })
   }
 
+  componentDidMount() {
+    if (!this.props.username) {
+      this.props.history.push('/')
+    }
+  }
+
   render() {
     return (
       <div>
+        <Nav page={'History'} logout={this.props.logout} username={this.props.username} />
+        <h3 className="table_headers">Select your Cards (scroll left/right)</h3>
         <div className="selection_container">
           {cards.map(card => <Card key={card.code} card={card} handleCardInteract={this.addCard} childClass={'small_card'} />)}
         </div>
 
         <div className="cards_container">
-          <div className="communal_container">
-            {this.state.com_cards.map(card => <Card key={card.code} card={card} handleCardInteract={this.removeComCard} childClass={'large_card'} />)}
+          <div>
+            <h3 className="table_headers">Table Cards</h3>
+            <div className="communal_container">
+              {this.state.com_cards.map(card => <Card key={card.code} card={card} handleCardInteract={this.removeComCard} childClass={'large_card'} />)}
+            </div>
           </div>
           <div className="button_container">
             <button onClick={this.switchTablePlayer}>Switch</button>
             <p>{this.state.player ? 'Add to hand' : 'Add to table'}</p>
           </div>
-          <div className="hand_container">
-            {this.state.player_cards.map(card => <Card key={card.code} card={card} handleCardInteract={this.removePlayerCard} childClass={'large_card'} />)}
+          <div>
+            <h3 className="table_headers">Hand Cards</h3>
+            <div className="hand_container">
+              {this.state.player_cards.map(card => <Card key={card.code} card={card} handleCardInteract={this.removePlayerCard} childClass={'large_card'} />)}
+            </div>
           </div>
         </div>
 
