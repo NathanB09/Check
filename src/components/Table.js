@@ -119,8 +119,8 @@ class Table extends Component {
             </div>
           </div>
           <div className="button_container">
+            {this.state.player ? <img src='/assets/hand-icon.png' alt='hand icon' /> : <img src='/assets/table-icon.png' alt='table icon' />}
             <button onClick={this.switchTablePlayer}>Switch</button>
-            <p>{this.state.player ? 'Add to hand' : 'Add to table'}</p>
           </div>
           <div>
             <h3 className="table_headers">Hand Cards</h3>

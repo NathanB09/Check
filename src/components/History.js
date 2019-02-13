@@ -23,7 +23,7 @@ class History extends React.Component {
     return (
       <div>
         <Nav page={'Table'} logout={this.props.logout} username={this.props.username} />
-        <h3 className="history_page_header" >You Last 5 Queries:</h3>
+        <h3 className="history_page_header" >Your Last 5 Queries:</h3>
         {this.state.lastFive.map(query => {
           const date = query.created_at.substring(0, query.created_at.length - 8).replace("T", " - ")
           return <div key={query.id} className="history_row">

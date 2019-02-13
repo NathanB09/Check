@@ -29,8 +29,6 @@ class Signup extends React.Component {
           } else {
             this.props.login(this.state.username, data.token)
             this.props.history.push('/table')
-            // API.getUserQueries()
-            //   .then(console.log)
           }
         })
     }
@@ -48,7 +46,7 @@ class Signup extends React.Component {
           <form onSubmit={handleSubmit}>
             <input onChange={handleChange} type="text" placeholder='Username' name="username" value={username} /><br />
             <input onChange={handleChange} type="password" placeholder='Password' name="password" value={password} /><br />
-            <button type='submit'>Signup</button>
+            <button type='submit'>Sign Up</button>
           </form>
         </div>
       </div>

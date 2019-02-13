@@ -26,8 +26,6 @@ class Login extends React.Component {
         } else {
           this.props.login(this.state.username, data.token)
           this.props.history.push('/table')
-          // API.getUserQueries()
-          //   .then(console.log)
         }
       })
   }
