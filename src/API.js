@@ -1,6 +1,6 @@
 class API {
   static init() {
-    this.baseURL = 'http://10.218.6.167:3000'
+    this.baseURL = 'http://localhost:3000'
     this.userURL = this.baseURL + '/users'
     this.loginURL = this.baseURL + '/login'
     this.signupURL = this.baseURL + '/signup'

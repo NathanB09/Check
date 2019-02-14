@@ -21,8 +21,8 @@
   height: auto;
   margin: 0 5px 0 5px; 
   cursor: pointer;
-  /* min-height: 100px; */
-  /* min-width: 66px; */
+  min-height: 150px;
+  min-width: 103px;
 }
 
 .large_card {
@@ -30,46 +30,48 @@
   width: 10vw;
   height: auto;
   margin: 10px 10px;
+  min-height: 150px;
+  min-width: 103px;
   cursor: pointer;
 }
 
 .cards_container {
   display: flex;
-  /* flex-direction: column; */
+  justify-content: space-between;
   margin: 20px;
   min-height: 16.6vw;
 }
 
 .communal_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   border-style: solid;
   border-color: #fff;
   border-width: 3px;
   border-radius: 10px;
-  flex: 60%;
-  text-align: center;
-  min-width: 820px;
-  min-height: 230px;
+  min-width: 57vw;
+  min-height: 33vh;
 }
 
 .hand_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-style: solid;
   border-color: #fff;
   border-width: 3px;
   border-radius: 10px;
-  flex: 24%;
-  text-align: center;
-  min-width: 340px;
-  min-height: 235px;
+  min-width: 23vw;
+  min-height: 33vh;
 }
 
 .button_container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex: 10%;
   text-align: center;
-  min-width: 200px;
-  padding-left: 25px; 
+  padding: 25px; 
 }
 
 .button_container button {
