@@ -25,7 +25,7 @@
   min-width: 100px;
   width: auto;
   height: 45px;
-  justify-content: center; 
+  justify-content: center;
   border-radius: 22.5px;
   border-width: 2px;
   border-color: #fff;
@@ -36,6 +36,10 @@
   padding: 0 20px;
 }
 
+.button_link {
+  text-decoration: none;
+}
+
 .nav_container ul li button:hover {
-  background: rgba(255, 255, 255, 0.3)
+  background: rgba(255, 255, 255, 0.3);
 }
