@@ -12,7 +12,7 @@ class Table extends Component {
     players: '2',
     com_cards: [],
     player_cards: [],
-    player: false,
+    player: true,
     odds: {
       win: null,
       lose: null,
